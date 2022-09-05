@@ -4,12 +4,14 @@
 }
 
 body{
+    margin: 0;
+    padding: 0;
     background-color: rgb(233, 239, 192);
 }
 
 form{
     border-radius: 10px;
-    background-color: rgba(180, 225, 151, 0.8);
+    background-color: rgb(255, 255, 255);
     margin: 20px auto;
     padding: 20px;
     width: 40%;
@@ -17,13 +19,41 @@ form{
     color: rgb(78, 148, 79);
 }
 
+h1{
+    width: 100%;
+    margin: 0;
+    padding: 2%;
+    background-color: #4E944F;
+    color: white;
+}
+
 input{
+    border-radius: 5px;
+    background-color: transparent;
     outline: none;
     padding: 7px;
-    border-radius: 10px;
-    border: none;
+    border: 1px solid;
     margin: 5px;
+    color: #4E944F;
 }
+
+input::placeholder{
+    color: #4E944F;
+}
+
+/* Courirer */
+#kurir{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#kurir div {
+    display: flex;
+    align-items: center;
+}
+
+/* Courirer end */
 
 /* Username */
 div#username {
@@ -68,6 +98,7 @@ div#email input{
 div#address {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 div#address-data{
@@ -88,6 +119,7 @@ div#address-data input{
     height: 150px;
     padding: 7px;
     outline: none;
-    border: none;
+    border: 1px solid;
     border-radius: 10px;
+    color: #4E944F;
 }
