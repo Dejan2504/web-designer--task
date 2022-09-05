@@ -1,3 +1,93 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
 body{
-    background-color: aqua;
+    background-color: rgb(233, 239, 192);
+}
+
+form{
+    border-radius: 10px;
+    background-color: rgba(180, 225, 151, 0.8);
+    margin: 20px auto;
+    padding: 20px;
+    width: 40%;
+    height: auto;
+    color: rgb(78, 148, 79);
+}
+
+input{
+    outline: none;
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+}
+
+/* Username */
+div#username {
+    display: flex;
+    justify-content: center;
+}
+/* Username end */
+
+/* Phone */
+div#phone {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div#phone-data{
+    width: 60%;
+}
+
+div#phone input{
+    width: 90%;
+}
+/* Phone end */
+
+/* Email */
+div#email {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div#email-data{
+    width: 60%;
+}
+
+div#email input{
+    width: 90%;
+}
+/* Email end */
+
+/*Address*/
+div#address {
+    display: flex;
+    justify-content: space-between;
+}
+
+div#address-data{
+    width: 60%;
+}
+
+div#address-data input{
+   width: 90%;
+}
+/* Address end */
+
+#username input{
+    width: 50%;
+}
+
+#napomene{
+    width: 90%;
+    height: 150px;
+    padding: 7px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
 }

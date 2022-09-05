@@ -9,6 +9,39 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div>
+        <form>
+            <h1>Place your order</h1>
+            <hr>
+            <label for="name">Name:</label><br>
+            <div id="username">  
+                <input type="text" name="name" placeholder="Ime" required/>
+                <input type="text" name="name" placeholder="Prezime" required/><br>
+            </div><br>
+            <div id="phone">
+                <label for="phone-number">Phone number</label>
+                <div id="phone-data">
+                    <input type="tel" name="phone-number" placeholder="Phone number" required/><br>
+                </div>
+            </div><br>
+            <div id="email">
+                <label for="email">Email</label>
+                <div id="email-data">
+                    <input type="email" id="email" name="email" placeholder="E-mail" required/><br>
+                </div>
+            </div><br>
+            <div id="address">
+                <label for="address">Delivery Address</label><br>
+                <div id="address-data">
+                    <input type="text" id="address" name="address" placeholder="address" required/><br>
+                    <input type="number" id="postal-number" name="address" placeholder="postal number" required/><br>
+                    <input type="text" id="place" name="address" placeholder="city" required/><br>
+                </div>
+            </div>
+            <label for="descitpion">Napomene</label><br>
+            <textarea name="description" id="napomene"></textarea><br>
+            <button>Submit</button>
+        </form>
+    </div>
 </body>
 </html>
