@@ -9,42 +9,44 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Place your order</h1>
     <div>
-        <h1>Place your order</h1>
         <form>
             <div>
-                <div id="kurir"><div><input type="checkbox" name="kurir" id="kurir kurir-1" checked><img src="https://www.olx.ba/img/delivery/bhpicon.png" alt="logo_kurir"><p>BH Post Express</p></div><div id="price"><p>8.00KM</p></div></div>
+                <div class="kurir checked"><div><input type="checkbox" name="kurir" id="kurir kurir-1" checked><img src="https://www.olx.ba/img/delivery/bhpicon.png" alt="logo_kurir"><p>BH Post Express</p></div><div id="price"><p>8.00KM</p></div></div>
             </div>
-            
             <hr>
-            <label for="name">Name:</label><br>
+            <div class="error-message">
+                <p>Invalid</p>
+            </div>
+            <label for="name">Name*</label><br>
             <div id="username">  
                 <input type="text" name="name" placeholder="Ime" required/>
                 <input type="text" name="name" placeholder="Prezime" required/><br>
             </div><br>
             <div id="phone">
-                <label for="phone-number">Telefon:</label>
+                <label for="phone-number">Telefon*</label>
                 <div id="phone-data">
                     <input type="tel" name="phone-number" placeholder="Broj telefona" required/><br>
                 </div>
             </div><br>
             <div id="email">
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <div id="email-data">
                     <input type="email" id="email" name="email" placeholder="E-mail" required/><br>
                 </div>
             </div><br>
             <div id="address">
-                <label for="address">Adresa</label><br>
+                <label for="address">Adresa*</label><br>
                 <div id="address-data">
                     <input type="text" id="address" name="address" placeholder="Adresa" required/><br>
-                    <input type="number" id="postal-number" name="address" placeholder="postal number" required/><br>
-                    <input type="text" id="place" name="address" placeholder="city" required/><br>
+                    <input type="number" id="postal-number" name="address" placeholder="Postanski broj" required/><br>
+                    <input type="text" id="place" name="address" placeholder="Grad" required/><br>
                 </div>
             </div>
             <label for="descitpion">Napomene</label><br>
             <textarea name="description" id="napomene"></textarea><br>
-            <button>Submit</button>
+            <div class="button"><button>Submit</button></div>
         </form>
     </div>
 </body>
