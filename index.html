@@ -16,37 +16,43 @@
                 <div class="kurir checked"><div><input type="checkbox" name="kurir" id="kurir kurir-1" checked><img src="https://www.olx.ba/img/delivery/bhpicon.png" alt="logo_kurir"><p>BH Post Express</p></div><div id="price"><p>8.00KM</p></div></div>
             </div>
             <hr>
-            <div class="error-message">
+            <!-- <div class="error-message">
                 <p>Invalid</p>
-            </div>
-            <label for="name">Name*</label><br>
+            </div> -->
+            <label for="name">Ime<span style="color: red;">*</span></label><br>
             <div id="username">  
-                <input type="text" name="name" placeholder="Ime" required/>
-                <input type="text" name="name" placeholder="Prezime" required/><br>
-            </div><br>
+                <input type="text" class="ime" name="name" placeholder="Ime" required/><br>
+                <input type="text" class="prezime" name="name" placeholder="Prezime" required/><br>
+            </div>
+            <ul class="ime-greska"></ul>
+
             <div id="phone">
-                <label for="phone-number">Telefon*</label>
-                <div id="phone-data">
-                    <input type="tel" name="phone-number" placeholder="Broj telefona" required/><br>
-                </div>
-            </div><br>
+                <label for="phone-number">Telefon<span style="color: red;">*</span></label>
+                    <div id="phone-data">
+                        <input type="tel" id="phone-input" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" name="phone-number" placeholder="### ### ###" required/><br>
+                    </div>
+                </div><br>
+                <ul class="telefon-greska"></ul>
+            
             <div id="email">
-                <label for="email">Email*</label>
+                <label for="email">Email<span style="color: red;">*</span></label>
                 <div id="email-data">
-                    <input type="email" id="email" name="email" placeholder="E-mail" required/><br>
+                    <input type="email" id="email-input" name="email" placeholder="E-mail" required/><br>
                 </div>
-            </div><br>
+            </div>
+            <ul class="email-greska"></ul>
+
             <div id="address">
-                <label for="address">Adresa*</label><br>
+                <label for="address">Adresa<span style="color: red;">*</span></label><br>
                 <div id="address-data">
-                    <input type="text" id="address" name="address" placeholder="Adresa" required/><br>
+                    <input type="text" id="place" name="address" placeholder="Mjesto" required/><br>
+                    <input type="text" id="address-input" name="address" placeholder="Adresa" required/><br>
                     <input type="number" id="postal-number" name="address" placeholder="Postanski broj" required/><br>
-                    <input type="text" id="place" name="address" placeholder="Grad" required/><br>
                 </div>
             </div>
             <label for="descitpion">Napomene</label><br>
             <textarea name="description" id="napomene"></textarea><br>
-            <div class="button"><button>Submit</button></div>
+            <div class="button"><button class="dugme">Submit</button></div>
         </form>
     </div>
 </body>
