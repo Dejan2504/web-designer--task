@@ -95,6 +95,7 @@ ul{
 div#username {
     display: flex;
     justify-content: center;
+    width: 95.6%
 }
 /* Username end */
 
@@ -151,7 +152,7 @@ div#address-data input{
 }
 
 #napomene{
-    width: 90%;
+    width: 95%;
     height: 150px;
     padding: 7px;
     outline: none;
@@ -172,7 +173,7 @@ button {
 
 .button{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -193,7 +194,7 @@ button {
     }
 
     div#username input{
-        width: 90%;
+        width: 94%;
     }
 
     div#phone{

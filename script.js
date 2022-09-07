@@ -11,6 +11,10 @@ const dugme = document.querySelectorAll('.dugme')[0];
 const greskaIme = document.querySelector('.ime-greska');
 const greskaTelefon = document.querySelectorAll('.telefon-greska')[0];
 const greskaEmail = document.getElementsByClassName('email-greska').item(0);
+let username = '';
+let surename = '';
+let phone = '';
+let eAdresa = '';
 
 const numberCheckIme = function(){
     const karakteriImena = ime.value.split('');
@@ -18,13 +22,14 @@ const numberCheckIme = function(){
     const html = `
     <li>*Nepravilno uneseno ime. Pokusajte ponovo.</li>
     `;
-    
-    console.log(karakteriImena);
+
         for(k of karakteriImena){
             if(!isNaN(k)){
                 greskaIme.insertAdjacentHTML('afterbegin',html);
                 ime.value = '';
                 break;
+            }else{
+                username = ime.value;
             }
         }
 };
@@ -35,22 +40,34 @@ const numberCheckPrezime = function(){
     const html = `
     <li>*Nepravilno uneseno prezime. Pokusajte ponovo.</li>
     `;
-    
-    console.log(karakteriImena);
+
         for(k of karakteriImena){
             if(!isNaN(k)){
                 greskaIme.insertAdjacentHTML('afterbegin',html);
                 prezime.value = '';
                 break;
+            }else{
+                surename = prezime.value;
             }
         }
 };
 
 const telephoneValidation = function(){
-    // Telephone container
-    telefon.oninvalid = function(e){
-        e.target.setCustomValidity('Format treba da bude ### ### ###!');
+    greskaTelefon.innerHTML = '';
+    const html =  `
+    <li>*Nepravilno unesen broj. Pokusajte format ### ### ###.</li>
+    `;
+
+    if(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{3})$/.test(telefon.value))
+    {
+        phone = telefon.value;
+        greskaTelefon.innerHTML = '';
+    }else{
+        greskaTelefon.innerHTML = '';
+        greskaTelefon.insertAdjacentHTML('afterbegin', html);
+
     }
+    
 }
 
 const emailValidation = function(){
@@ -60,26 +77,44 @@ const emailValidation = function(){
     `;
     if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))
     {
-        greskaEmail.value = '';
+        eAdresa = email.value;
+        greskaEmail.innerHTML = '';
     }else {
         greskaEmail.insertAdjacentHTML('afterbegin', html);
+        greskaEmail.innerHTML = '';
     }
 };
-   
-const validation = function(e){
-    e.preventDefault();
-    // Validacija imena i prezimena
-    numberCheckIme();
-    numberCheckPrezime();
-    // Validacija unosa telefonskog broja
-    telephoneValidation();
-    // Validacija email adrese
-    emailValidation();
-    // Ispis u konzolu
+
+const addressValidation = function(){
+    if(mjesto.length != 0 && adresa.length != 0 && postanskiBroj.length != 0){
+        let place = mjesto.value;
+        let address = adresa.value;
+        let postNumber = postanskiBroj.value;
+        return {place, address, postNumber};
+    }
 }
 
-// ime.addEventListener('keyup',numberCheckIme);
-// prezime.addEventListener('keyup',numberCheckPrezime);
-// telefon.addEventListener('keyup', telephoneValidation);
+const consoleLog = function(e){
+    e.preventDefault();
 
-dugme.addEventListener('click', validation());
+    let {place, address, postNumber} = addressValidation();
+    
+    let proposals = napomena.value;
+
+    console.log(`   Ime i Prezime: ${username} ${surename},
+    Email: ${eAdresa},
+    Broj telefona: ${phone}
+    Adresa: ul. ${address}, ${place} ${postNumber},
+    Napomena: ${proposals}`);
+}
+   
+
+// Validacija imena i prezimena
+ime.addEventListener('keyup',numberCheckIme);
+prezime.addEventListener('keyup',numberCheckPrezime);
+// Validacija unosa telefonskog broja
+telefon.addEventListener('keyup',telephoneValidation);
+// Validacija email adrese
+email.addEventListener('keyup',emailValidation);
+// Ispis u konzolu
+dugme.addEventListener('click', consoleLog);
