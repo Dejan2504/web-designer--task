@@ -11,7 +11,6 @@ const dugme = document.querySelectorAll('.dugme')[0];
 const greskaIme = document.querySelector('.ime-greska');
 const greskaTelefon = document.querySelectorAll('.telefon-greska')[0];
 const greskaEmail = document.getElementsByClassName('email-greska').item(0);
-console.log(greskaIme);
 
 const numberCheckIme = function(){
     const karakteriImena = ime.value.split('');
@@ -49,15 +48,8 @@ const numberCheckPrezime = function(){
 
 const telephoneValidation = function(){
     // Telephone container
-    const html = `
-    <li>*Nepravilno unesen telefonski broj. Pokusajte format ### ### ###.</li>
-    `;
-
-    const brojevi = telefon.value.split(' ');
-    console.log(brojevi.length);
-
-    if(brojevi.length != 3){
-        greskaTelefon.insertAdjacentElement('afterbegin', html);
+    telefon.oninvalid = function(e){
+        e.target.setCustomValidity('Format treba da bude ### ### ###!');
     }
 }
 
@@ -76,22 +68,18 @@ const emailValidation = function(){
    
 const validation = function(e){
     e.preventDefault();
-
-    // Validacija kurirske sluzbe i renderovanje odabira
-
     // Validacija imena i prezimena
-    numberCheck();
+    numberCheckIme();
+    numberCheckPrezime();
     // Validacija unosa telefonskog broja
-
+    telephoneValidation();
     // Validacija email adrese
     emailValidation();
-    // Validacija adrese dostave
-
     // Ispis u konzolu
 }
 
-ime.addEventListener('keyup',numberCheckIme);
-prezime.addEventListener('keyup',numberCheckPrezime);
+// ime.addEventListener('keyup',numberCheckIme);
+// prezime.addEventListener('keyup',numberCheckPrezime);
 // telefon.addEventListener('keyup', telephoneValidation);
 
-dugme.addEventListener('click', emailValidation);
+dugme.addEventListener('click', validation());
